@@ -9,13 +9,13 @@
     Plugin 'gmarik/Vundle.vim'
     Plugin 'godlygeek/tabular'
     Plugin 'plasticboy/vim-markdown'
+    Plugin 'honza/vim-snippets'
+    Plugin 'vim-scripts/upAndDown'
     Plugin 'altercation/vim-colors-solarized'
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'scrooloose/syntastic'
     Plugin 'ervandew/supertab'
     Plugin 'sirver/ultisnips'
-    Plugin 'honza/vim-snippets'
-    
     
     " All of your Plugins must be added before the following line
     call vundle#end()           
@@ -40,7 +40,7 @@
     " Global {
         " Interactive mode remaps {
             " Paste from clipboard
-            imap <C-v> <C-r>+
+            " imap <C-v> <Esc>"+p
         " }
 
         " Visual mode remaps {
@@ -58,6 +58,16 @@
             " Execute actual script
             autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
         " }
+        
+        " comment line or selection with Ctrl-N,Ctrl-N
+        autocmd FileType python nnoremap  <C-N><C-N>    mn:s/^\(\s*\)#*\(.*\)/\1#\2/ge<CR>:noh<CR>`n
+        autocmd FileType python inoremap  <C-N><C-N>    <C-O>mn<C-O>:s/^\(\s*\)#*\(.*\)/\1#\2/ge<CR><C-O>:noh<CR><C-O>`n
+        autocmd FileType python vnoremap  <C-N><C-N>    mn:s/^\(\s*\)#*\(.*\)/\1#\2/ge<CR>:noh<CR>gv`n
+
+        " uncomment line or selection with Ctrl-N,N
+        autocmd FileType python nnoremap  <C-N>n     mn:s/^\(\s*\)#\([^ ]\)/\1\2/ge<CR>:s/^#$//ge<CR>:noh<CR>`n
+        autocmd FileType python inoremap  <C-N>n     <C-O>mn<C-O>:s/^\(\s*\)#\([^ ]\)/\1\2/ge<CR><C-O>:s/^#$//ge<CR><C-O>:noh<CR><C-O>`n
+        autocmd FileType python vnoremap  <C-N>n     mn:s/^\(\s*\)#\([^ ]\)/\1\2/ge<CR>gv:s/#\n/\r/ge<CR>:noh<CR>gv`n
     " }
 " }
 
@@ -88,4 +98,3 @@
 
 " Line numbers
     set number
-
