@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+  <component name="VimSettings">
+    <state version="4" enabled="false" />
+    <globalmarks />
+    <filemarks>
+      <file name="$USER_HOME$/ProgramGenious/the_editor/the_editor/boxes/base_boxes/emphasis_text_edit.py" timestamp="1414350461630">
+        <mark key="'" line="17" column="14" />
+        <mark key="]" line="14" column="23" />
+        <mark key="n" line="17" column="14" />
+        <mark key="^" line="14" column="23" />
+        <mark key="." line="14" column="23" />
+        <mark key="[" line="14" column="24" />
+      </file>
+    </filemarks>
+    <jumps>
+      <jump line="14" column="23" filename="$USER_HOME$/ProgramGenious/the_editor/the_editor/boxes/base_boxes/emphasis_text_edit.py" />
+      <jump line="3" column="6" filename="$USER_HOME$/ProgramGenious/the_editor/the_editor/boxes/base_boxes/emphasis_text_edit.py" />
+      <jump line="8" column="14" filename="$USER_HOME$/ProgramGenious/the_editor/the_editor/boxes/base_boxes/emphasis_text_edit.py" />
+      <jump line="13" column="14" filename="$USER_HOME$/ProgramGenious/the_editor/the_editor/boxes/base_boxes/emphasis_text_edit.py" />
+      <jump line="17" column="14" filename="$USER_HOME$/ProgramGenious/the_editor/the_editor/boxes/base_boxes/emphasis_text_edit.py" />
+    </jumps>
+    <registers>
+      <register name="/" type="4">
+        <text>Emphasi</text>
+      </register>
+    </registers>
+    <search>
+      <last-search>Emphasi</last-search>
+      <last-offset />
+      <last-pattern>Emphasi</last-pattern>
+      <last-dir>1</last-dir>
+      <show-last>false</show-last>
+    </search>
+    <history>
+      <history-search>
+        <entry>Emphasi</entry>
+      </history-search>
+      <history-cmd />
+      <history-expr />
+      <history-input />
+    </history>
+    <shortcut-conflicts />
+  </component>
+</application>
+

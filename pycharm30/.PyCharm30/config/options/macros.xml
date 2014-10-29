@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+  <component name="ActionMacroManager">
+    <macro name="testtt">
+      <typing text-keycode="57:0;46:1;32:0;50:1">9:&amp;#x20;&quot;</typing>
+      <action id="EditorRight" />
+      <typing text-keycode="44:0">,</typing>
+      <action id="EditorEnter" />
+    </macro>
+  </component>
+</application>
+

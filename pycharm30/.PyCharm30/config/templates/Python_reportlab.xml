@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templateSet group="Python-reportlab">
+  <template name="rlinit" value="doc = SimpleDocTemplate(path, rightMargin=10, leftMargin=10,&#10;                        topMargin=32, bottomMargin=12,&#10;                        pagesize=A4, showBundary=1)&#10;&#10;story = []&#10;&#10;doc.build(story)&#10;$END$" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="Python" value="true" />
+      <option name="Django" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JAVA_SCRIPT" value="false" />
+      <option name="TypeScript" value="false" />
+      <option name="SQL" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+</templateSet>
+

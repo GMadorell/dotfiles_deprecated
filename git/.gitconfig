@@ -1,0 +1,6 @@
+[user]
+	name = Skabed
+	email = gmadorell@gmail.com
+[core]
+	autocrlf = input
+	excludesfile = ~/.gitignore_global

@@ -1,0 +1,5 @@
+[
+    { "keys": ["ctrl+alt+f11"], "command": "toggle_distraction_free" },
+    { "keys": ["alt+c"], "command": "toggle_comment", "args": { "block": false }},
+    { "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "Packages/Default/Delete Line.sublime-macro"}  }
+]
