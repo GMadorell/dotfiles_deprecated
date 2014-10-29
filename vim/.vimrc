@@ -16,6 +16,7 @@
     Plugin 'scrooloose/syntastic'
     Plugin 'ervandew/supertab'
     Plugin 'sirver/ultisnips'
+    Plugin 'kien/ctrlp.vim'
     
     " All of your Plugins must be added before the following line
     call vundle#end()           
@@ -85,6 +86,11 @@
 
     " If you want :UltiSnipsEdit to split your window.
     let g:UltiSnipsEditSplit="vertical"
+" }
+
+" UltiSnips Configuration {
+    autocmd FileType python UltiSnipsAddFiletypes python
+    autocmd FileType mkd UltiSnipsAddFiletypes mkd.md.markdown
 " }
 
 " Formatting {
