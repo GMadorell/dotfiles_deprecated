@@ -1,7 +1,7 @@
 
 " Vundle - Plugin Manager {
-    set nocompatible           
-    filetype off                  
+    set nocompatible
+    filetype off
     " set the runtime path to include Vundle and initialize
     set rtp+=~/.vim/bundle/Vundle.vim
     call vundle#begin()
@@ -19,8 +19,8 @@
     Plugin 'kien/ctrlp.vim'
     
     " All of your Plugins must be added before the following line
-    call vundle#end()           
-    filetype plugin indent on    
+    call vundle#end()
+    filetype plugin indent on
 " }
 
 
@@ -42,7 +42,7 @@
         " Paste from clipboard
         " imap <C-v> <Esc>"+p
         " Copy visual selection to main clipboard
-        vnoremap <C-c> "+y  
+        vnoremap <C-c> "+y
     " }
 
     " Movement between splits  {
@@ -52,11 +52,11 @@
         nnoremap <C-H> <C-W><C-H>
     " }
 
-    " Tabulation control { 
+    " Tabulation control {
         " Tabulate whole selected block
-        vmap <Tab> >gv      
+        vmap <Tab> >gv
         " Detabulate whole selected block
-        vmap <S-Tab> <gv    
+        vmap <S-Tab> <gv
     " }
 
     " Python {
@@ -64,7 +64,7 @@
             " Execute actual script
             autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
         " }
-        
+
         " comment line or selection with Ctrl-N,Ctrl-N
         autocmd FileType python nnoremap  <C-N><C-N>    mn:s/^\(\s*\)#*\(.*\)/\1#\2/ge<CR>:noh<CR>`n
         autocmd FileType python inoremap  <C-N><C-N>    <C-O>mn<C-O>:s/^\(\s*\)#*\(.*\)/\1#\2/ge<CR><C-O>:noh<CR><C-O>`n
@@ -105,6 +105,7 @@
     set softtabstop=4               " Let backspace delete indent   4
     set nowrap                      " Do not wrap long lines
     set autoindent                  " Indent at the same level of the previous line
+    set list listchars=tab:»·,trail:·,nbsp:· "Display extra whitespace
 " }
 
 " Line numbers
