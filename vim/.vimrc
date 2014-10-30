@@ -38,20 +38,25 @@
 
 
 " Remaps {
-    " Global {
-        " Interactive mode remaps {
-            " Paste from clipboard
-            " imap <C-v> <Esc>"+p
-        " }
+    " Clipboard {
+        " Paste from clipboard
+        " imap <C-v> <Esc>"+p
+        " Copy visual selection to main clipboard
+        vnoremap <C-c> "+y  
+    " }
 
-        " Visual mode remaps {
-            " Copy to main clipboard
-            vnoremap <C-c> "+y  
-            " Tabulate whole selected block
-            vmap <Tab> >gv      
-            " Detabulate whole selected block
-            vmap <S-Tab> <gv    
-        " }
+    " Movement between splits  {
+        nnoremap <C-J> <C-W><C-J>
+        nnoremap <C-K> <C-W><C-K>
+        nnoremap <C-L> <C-W><C-L>
+        nnoremap <C-H> <C-W><C-H>
+    " }
+
+    " Tabulation control { 
+        " Tabulate whole selected block
+        vmap <Tab> >gv      
+        " Detabulate whole selected block
+        vmap <S-Tab> <gv    
     " }
 
     " Python {
