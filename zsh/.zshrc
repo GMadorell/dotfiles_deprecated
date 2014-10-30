@@ -93,8 +93,8 @@ alias "smartgit_run=sudo bash $HOME/installed_programs/smartgithg*/bin/smartgith
 alias "android_studio_run=sudo bash $HOME/installed_programs/android-studio/bin/studio.sh &"
 
 # Vim aliases
-alias "vim_plugin_install=vim +PluginInstall -q -q"
-alias "vim_plugin_update=vim +PluginUpdate -q -q"
+alias "vim_plugin_install_and_quit=vim +PluginInstall +:q +:q"
+alias "vim_plugin_update_and_quit=vim +PluginUpdate +:q +:q"
 
 export SETUP_PATH="$HOME/setup"
 
