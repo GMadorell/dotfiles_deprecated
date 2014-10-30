@@ -105,4 +105,4 @@ export PROGRAMS_PATH="$HOME/installed_programs"
 export CONFIG_PATH="$HOME/Dropbox/configuration"
 
 # www.gitignore.io command line.
-function gi() { curl -k https://www.gitignore.io/api/$@ ;}
+function gi() { wget -qO- https://www.gitignore.io/api/$@ ;}
