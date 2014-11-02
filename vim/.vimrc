@@ -1,6 +1,8 @@
 
+set nocompatible
+let mapleader=" "
+
 " Vundle - Plugin Manager {
-    set nocompatible
     filetype off
     " set the runtime path to include Vundle and initialize
     set rtp+=~/.vim/bundle/Vundle.vim
@@ -14,15 +16,18 @@
     Plugin 'altercation/vim-colors-solarized'
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'scrooloose/syntastic'
-    Plugin 'ervandew/supertab'
+    Plugin 'ervandew/supertab'  
     Plugin 'sirver/ultisnips'
-    Plugin 'kien/ctrlp.vim'
-    
+    Plugin 'kien/ctrlp.vim' 
+    Plugin 'rking/ag.vim'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'scrooloose/nerdcommenter'
+    Plugin 'tpope/vim-repeat'
+
     " All of your Plugins must be added before the following line
     call vundle#end()
     filetype plugin indent on
 " }
-
 
 " Syntax coloring {
     syntax enable
@@ -34,10 +39,35 @@
         set background=dark
         colorscheme solarized
     " }
+" 
+
+" F Keys Mapping {
+    " Paste mode toggling for copy pasting verbatim text when enabled.
+    set pastetoggle=<F2>
+    nmap <F3> = :NERDTreeToggle<CR>
+    " Execute actual script
+    autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 " }
 
-
 " Remaps {
+
+    " Change buffer sizes {  
+        nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+        nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+        nnoremap <silent> <Leader>< :vertical res-10<CR>
+        nnoremap <silent> <Leader>> :vertical res+10<CR>
+    " }
+
+    " Colon magic, allows to enter : without shift, faster {
+        nnoremap , :
+        nnoremap ; :
+    " }
+
+    " Change to next row in editor, not next wrapped line {
+        nnoremap j gj
+        nnoremap k gk
+    " }
+
     " Clipboard {
         " Paste from clipboard
         " imap <C-v> <Esc>"+p
@@ -58,55 +88,39 @@
         " Detabulate whole selected block
         vmap <S-Tab> <gv
     " }
-
-    " Python {
-        " Normal mode remaps {
-            " Execute actual script
-            autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
-        " }
-
-        " comment line or selection with Ctrl-N,Ctrl-N
-        autocmd FileType python nnoremap  <C-N><C-N>    mn:s/^\(\s*\)#*\(.*\)/\1#\2/ge<CR>:noh<CR>`n
-        autocmd FileType python inoremap  <C-N><C-N>    <C-O>mn<C-O>:s/^\(\s*\)#*\(.*\)/\1#\2/ge<CR><C-O>:noh<CR><C-O>`n
-        autocmd FileType python vnoremap  <C-N><C-N>    mn:s/^\(\s*\)#*\(.*\)/\1#\2/ge<CR>:noh<CR>gv`n
-
-        " uncomment line or selection with Ctrl-N,N
-        autocmd FileType python nnoremap  <C-N>n     mn:s/^\(\s*\)#\([^ ]\)/\1\2/ge<CR>:s/^#$//ge<CR>:noh<CR>`n
-        autocmd FileType python inoremap  <C-N>n     <C-O>mn<C-O>:s/^\(\s*\)#\([^ ]\)/\1\2/ge<CR><C-O>:s/^#$//ge<CR><C-O>:noh<CR><C-O>`n
-        autocmd FileType python vnoremap  <C-N>n     mn:s/^\(\s*\)#\([^ ]\)/\1\2/ge<CR>gv:s/#\n/\r/ge<CR>:noh<CR>gv`n
-    " }
 " }
 
-
-" UltiSnips and YCM { 
-    " make YCM compatible with UltiSnips (using supertab)
-    let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-    let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-    let g:SuperTabDefaultCompletionType = '<C-n>'
-
-    " better key bindings for UltiSnipsExpandTrigger
-    let g:UltiSnipsExpandTrigger = "<c-j>"
-    let g:UltiSnipsJumpForwardTrigger = "<tab>"
-    let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
-    " If you want :UltiSnipsEdit to split your window.
-    let g:UltiSnipsEditSplit="vertical"
-" }
-
-" UltiSnips Configuration {
-    autocmd FileType python UltiSnipsAddFiletypes python
-    autocmd FileType mkd UltiSnipsAddFiletypes mkd.md.markdown
+" Let ctrlp use ag if installed {
+    if executable('ag')
+        " Use Ag over Grep
+        set grepprg=ag\ --nogroup\ --nocolor
+        " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+        let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    endif
 " }
 
 " Formatting {
-    set tabstop=4                   " An indentation every four columns   
-    set expandtab                   " Tabs are spaces, not tabs   
-    set shiftwidth=4                " Use indents of 4 spaces   
-    set softtabstop=4               " Let backspace delete indent   4
-    set nowrap                      " Do not wrap long lines
-    set autoindent                  " Indent at the same level of the previous line
-    set list listchars=tab:»·,trail:·,nbsp:· "Display extra whitespace
+    set tabstop=4     " An indentation every four columns
+    set expandtab     " Tabs are spaces, not tabs
+    set shiftwidth=4  " Use indents of 4 spaces
+    set softtabstop=4 " Let backspace delete indent   4
+    set nowrap        " Do not wrap long lines
+    set autoindent    " Indent at the same level of the previous line
+    set copyindent    " Copy previous indentation while autoindenting
+    set number        " Line numbers
+    set showmode      " Always show current mode
+    set smartcase     " Ignore case if search pattern is lowercase, otherwise case-sensitive
+    set smarttab      " Insert tabs at start of line according to shiftwidth, not tabstop
+    set hlsearch      " Highlight search terms
+    set incsearch     " Incremental search
+    set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·
 " }
 
-" Line numbers
-    set number
+" Persist undo history {
+    set undofile
+    set undolevels=9999
+    set undoreload=9999
+    " Keep the undo file at home
+    silent !mkdir -p $HOME/.vimundo >/dev/null 2>&1
+    set undodir=$HOME/.vimundo//
+" }
