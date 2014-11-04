@@ -104,6 +104,12 @@ let mapleader=" "
     endif
 " }
 
+" Trigger warning when file is changed {
+    " Check whenever cursor is still for updatetime milliseconds.
+    set updatetime=2000 
+    :au CursorHold * checktime
+" }
+
 " Formatting {
     set tabstop=4     " An indentation every four columns
     set expandtab     " Tabs are spaces, not tabs
