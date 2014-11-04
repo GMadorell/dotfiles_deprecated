@@ -1,3 +1,0 @@
-!Convertir Bloq Mayus en una segunda tecla Escape
-remove Lock = Caps_Lock
-keysym Caps_Lock = Escape
