@@ -24,6 +24,7 @@ let mapleader=" "
     Plugin 'scrooloose/nerdcommenter'
     Plugin 'tpope/vim-repeat'
     Plugin 'bling/vim-airline'
+    Plugin 'sjl/gundo.vim'
 
     " All of your Plugins must be added before the following line
     call vundle#end()
@@ -50,6 +51,7 @@ let mapleader=" "
     " Paste mode toggling for copy pasting verbatim text when enabled.
     set pastetoggle=<F2>
     nmap <F3> = :NERDTreeToggle<CR>
+    nnoremap <F5> :GundoToggle<CR>
     " Execute actual script
     autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 " }
