@@ -1,6 +1,7 @@
 
 set nocompatible
 let mapleader=" "
+let maplocalleader="_"
 
 " Vundle - Plugin Manager {
     filetype off
@@ -137,3 +138,8 @@ let mapleader=" "
     silent !mkdir -p $HOME/.vimundo >/dev/null 2>&1
     set undodir=$HOME/.vimundo//
 " }
+
+" Lines added by the Vim-R-plugin command :RpluginConfig (2014-nov-05 17:19):
+" Press the space bar to send lines (in Normal mode) and selections to R:
+" vmap <Space> <Plug>RDSendSelection
+" nmap <Space> <Plug>RDSendLine
