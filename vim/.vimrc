@@ -98,7 +98,7 @@ let maplocalleader="_"
     " }
 " }
 
-" Ultisnips and YCM {
+" Ultisnips and YCM compatibility {
     " make YCM compatible with UltiSnips (using supertab)
     let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
     let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -108,13 +108,15 @@ let maplocalleader="_"
     let g:UltiSnipsExpandTrigger = "<c-j>"
     let g:UltiSnipsJumpForwardTrigger = "<tab>"
     let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" }
 
+" Ultisnips {
     " If you want :UltiSnipsEdit to split your window.
     let g:UltiSnipsEditSplit="vertical"
+    " Snippet files for different file formats.
+    autocmd FileType python UltiSnipsAddFiletypes python
+    autocmd FileType mkd UltiSnipsAddFiletypes mkd.md.markdown
 " }
-
-" }
-
 " Let ctrlp use ag if installed {
     if executable('ag')
         " Use Ag over Grep
