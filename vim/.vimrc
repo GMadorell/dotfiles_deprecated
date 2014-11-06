@@ -36,6 +36,7 @@ let maplocalleader="_"
     set laststatus=2
 " }
 
+
 " Syntax coloring {
     syntax enable
     syntax on
@@ -117,6 +118,11 @@ let maplocalleader="_"
     autocmd FileType python UltiSnipsAddFiletypes python
     autocmd FileType mkd UltiSnipsAddFiletypes mkd.md.markdown
 " }
+
+" YCM {
+    let g:ycm_autoclose_preview_window_after_completion = 1
+" }
+ 
 " Let ctrlp use ag if installed {
     if executable('ag')
         " Use Ag over Grep
