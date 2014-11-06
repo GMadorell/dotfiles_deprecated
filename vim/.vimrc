@@ -26,6 +26,7 @@ let maplocalleader="_"
     Plugin 'tpope/vim-repeat'
     Plugin 'bling/vim-airline'
     Plugin 'sjl/gundo.vim'
+    Plugin 'vim-scripts/Vim-R-plugin'
 
     " All of your Plugins must be added before the following line
     call vundle#end()
@@ -60,7 +61,7 @@ let maplocalleader="_"
 " Remaps {
 
     " Change buffer sizes {  
-        nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+        nnoremap <silent> <Leader>+ :exe "resize " . max([winheight(0) * 3/2, 2])<CR>
         nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
         nnoremap <silent> <Leader>< :vertical res-10<CR>
         nnoremap <silent> <Leader>> :vertical res+10<CR>
@@ -162,3 +163,5 @@ let maplocalleader="_"
 " Press the space bar to send lines (in Normal mode) and selections to R:
 " vmap <Space> <Plug>RDSendSelection
 " nmap <Space> <Plug>RDSendLine
+let vimrplugin_term = "terminator"
+let vimrplugin_term_cmd = "terminator --title R -x"
