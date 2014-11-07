@@ -1,5 +1,5 @@
 # Dotfiles configuration files management
-This repo holds my configuration files using the fantastic a custom tool inspired by gnu-stow tool.
+This repo holds my configuration files. They can be replicated using a custom tool inspired by gnu-stow tool.
 
 ## Creating links
 The idea behind this project is to have a ~/dotfiles folder holding this repository contents. Then, instead of having the configuration files in their location, symlinks are created so all the configuration files are in that folder.
