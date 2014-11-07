@@ -8,3 +8,5 @@ Session.vim
 .netrwhist
 *~
 
+# Ignore the bundle repository. Plugin installs are local.
+vim/.vim/bundle/
