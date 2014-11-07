@@ -43,9 +43,19 @@ def export_bindings(file_path):
     click.echo("Succesfully exported keybindings to {}".format(file_path))
 
 
-def backup_file(file_path, verbose=True):
+def backup_file(file_path, backup_path=None, verbose=True):
+    """
+    If the given 'file_path' exists, this function creates a copy of it.
+    Backup is done at 'backup_path'.backup# (backup_path defaults to
+    'file_path'.
+    If 'verbose' is set (defaults to True), prints output when backing up.
+    """
     if not os.path.isfile(file_path):
         return
+    if not backup_path:
+        backup_path = file_path
+    ensure_directory(backup_path)
+
     count = 1
     file_name_template = "{}.backup{}"
     backup_name = file_name_template.format(file_path, count)
@@ -61,6 +71,12 @@ def backup_file(file_path, verbose=True):
         print(dedent("""\
             '{}' already found! Backing the file up to '{}' before doing
             any changes.""".format(file_path, backup_name)))
+
+
+def ensure_directory(file_path):
+    d = os.path.dirname(file_path)
+    if d and not os.path.exists(d):
+        os.makedirs(d)
 
 
 @cli.command()

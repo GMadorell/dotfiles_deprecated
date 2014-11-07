@@ -10,3 +10,6 @@ Session.vim
 
 # Ignore the bundle repository. Plugin installs are local.
 vim/.vim/bundle/
+
+# Ignore backed up files
+backup/
