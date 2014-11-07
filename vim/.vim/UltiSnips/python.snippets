@@ -1,0 +1,14 @@
+snippet click_boilerplate "Click boilerplate code" b
+import click
+
+@click.group()
+def cli():
+	pass
+
+@cli.command()
+def ${1:command}():
+	${2:pass}
+
+if __name__ == "__main__":
+	cli()
+endsnippet
