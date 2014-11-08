@@ -10,12 +10,17 @@ def cli():
     pass
 
 
-@cli.command(help="Link the given 'name' directory files recursively, " +
-             "backing up existing files.")
-@click.argument("name")
-def link(name):
+@cli.command(help="Link the given 'names' directory files recursively, " +
+                  "backing up existing files. Ex usage: link git r vim")
+@click.argument("names", nargs=-1)
+def link(names):
+    for name in names:
+        link_single_directory(name)
+
+
+def link_single_directory(name):
     assert check_valid_link_directory(name),\
-        "Directory '{}' is not valid.".format(name)
+        "Directory '{}' is not valid. Does it exist?".format(name)
     click.echo(name)
     walk_results = list(os.walk(name))
     # Walk gives results such as 'name/directory', we are only interested
