@@ -12,3 +12,9 @@ def ${1:command}():
 if __name__ == "__main__":
 	cli()
 endsnippet
+
+snippet click_command "Create new click command" b
+@${1:cli}.command(help=${4:None})
+def ${2:some_command}($3):
+	${5:pass}
+endsnippet

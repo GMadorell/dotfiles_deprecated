@@ -35,4 +35,14 @@ Then, when we have moved the files, use the following to create the symlinks:
 	python dotfiles_manager link vim
 	python dotfiles_manager link terminator
 
+We can also link more than one main directory using:
+
+    python dotfiles_manager.py link vim terminator
+
+We can also unlink the symlinks, and do operations to all the valid main directories:
+
+    python dotfiles_manager.py unlink vim terminator
+    python dotfiles_manager.py link_all
+    python dotfiles_manager.py unlink_all
+
 When we are installing the config files in a new computer, we can just download the repo and run the appropiate command for the configs we want.
