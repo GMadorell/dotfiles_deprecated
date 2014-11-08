@@ -27,6 +27,9 @@ let maplocalleader="_"
     Plugin 'bling/vim-airline'
     Plugin 'sjl/gundo.vim'
     Plugin 'vim-scripts/Vim-R-plugin'
+    
+    Plugin 'xolox/vim-session'
+    Plugin 'xolox/vim-misc'
 
     " All of your Plugins must be added before the following line
     call vundle#end()
@@ -66,6 +69,7 @@ let maplocalleader="_"
         nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
         nnoremap <silent> <Leader>< :vertical res-10<CR>
         nnoremap <silent> <Leader>> :vertical res+10<CR>
+        nnoremap <silent> <Leader><< :vertical res85<CR>
     " }
 
     " Colon magic, allows to enter : without shift, faster {
@@ -139,6 +143,11 @@ let maplocalleader="_"
     :au CursorHold * checktime
 " }
 
+" vim-sessions {
+    let g:session_command_aliases = 1
+    let g:session_autosave = 'yes'
+" }
+
 " Formatting {
     set tabstop=4     " An indentation every four columns
     set expandtab     " Tabs are spaces, not tabs
@@ -165,9 +174,43 @@ let maplocalleader="_"
     set undodir=$HOME/.vimundo//
 " }
 
-" Lines added by the Vim-R-plugin command :RpluginConfig (2014-nov-05 17:19):
-" Press the space bar to send lines (in Normal mode) and selections to R:
-" vmap <Space> <Plug>RDSendSelection
-" nmap <Space> <Plug>RDSendLine
-let vimrplugin_term = "terminator"
-let vimrplugin_term_cmd = "terminator --title R -x"
+" vimrplugin settings {
+    " Lines added by the Vim-R-plugin command :RpluginConfig (2014-nov-05 17:19):
+    " Press the space bar to send lines (in Normal mode) and selections to R:
+    " vmap <Space> <Plug>RDSendSelection
+    " nmap <Space> <Plug>RDSendLine
+    let vimrplugin_term = "terminator"
+    let vimrplugin_term_cmd = "terminator --title R -x"
+" }
+
+" Custom tab display - number) tabname {
+if exists("+showtabline")
+     function MyTabLine()
+         let s = ''
+         let t = tabpagenr()
+         let i = 1
+         while i <= tabpagenr('$')
+             let buflist = tabpagebuflist(i)
+             let winnr = tabpagewinnr(i)
+             let s .= '%' . i . 'T'
+             let s .= (i == t ? '%1*' : '%2*')
+             let s .= ' '
+             let s .= i . ')'
+             let s .= ' %*'
+             let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
+             let file = bufname(buflist[winnr - 1])
+             let file = fnamemodify(file, ':p:t')
+             if file == ''
+                 let file = '[No Name]'
+             endif
+             let s .= file
+             let i = i + 1
+         endwhile
+         let s .= '%T%#TabLineFill#%='
+         let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+         return s
+     endfunction
+     set stal=2
+     set tabline=%!MyTabLine()
+endif
+" }

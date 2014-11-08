@@ -13,3 +13,6 @@ vim/.vim/bundle/
 
 # Ignore backed up files
 backup/
+
+# Ignore vim sessions
+vim/.vim/sessions/
