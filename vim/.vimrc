@@ -10,26 +10,33 @@ let maplocalleader="_"
     call vundle#begin()
 
     Plugin 'gmarik/Vundle.vim'
-    Plugin 'godlygeek/tabular'
+
     Plugin 'plasticboy/vim-markdown'
-    Plugin 'honza/vim-snippets'
-    Plugin 'vim-scripts/upAndDown'
     Plugin 'altercation/vim-colors-solarized'
-    Plugin 'Valloric/YouCompleteMe'
+    Plugin 'bling/vim-airline'
+    
     Plugin 'scrooloose/syntastic'
+
+    Plugin 'Valloric/YouCompleteMe'
     Plugin 'ervandew/supertab'  
     Plugin 'sirver/ultisnips'
-    Plugin 'kien/ctrlp.vim' 
+    Plugin 'honza/vim-snippets'
+
+    Plugin 'kien/ctrlp.vim'
     Plugin 'rking/ag.vim'
+
     Plugin 'scrooloose/nerdtree'
-    Plugin 'scrooloose/nerdcommenter'
-    Plugin 'tpope/vim-repeat'
-    Plugin 'bling/vim-airline'
     Plugin 'sjl/gundo.vim'
-    Plugin 'vim-scripts/Vim-R-plugin'
+
+    Plugin 'scrooloose/nerdcommenter'
+    Plugin 'godlygeek/tabular'
+    Plugin 'tpope/vim-repeat'
+    Plugin 'vim-scripts/upAndDown'
     
     Plugin 'xolox/vim-session'
     Plugin 'xolox/vim-misc'
+
+    Plugin 'vim-scripts/Vim-R-plugin'
 
     " All of your Plugins must be added before the following line
     call vundle#end()

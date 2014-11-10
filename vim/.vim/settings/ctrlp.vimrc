@@ -14,3 +14,5 @@ let g:ctrlp_show_hidden = 1
 " Start search at nearest ancient that holds a repo directory (.git)
 " If that fails, use the current working directory.
 let g:ctrlp_working_path_mode = 'ra'
+
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15'
