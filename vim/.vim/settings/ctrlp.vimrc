@@ -10,3 +10,7 @@
 " }
 
 let g:ctrlp_show_hidden = 1
+
+" Start search at nearest ancient that holds a repo directory (.git)
+" If that fails, use the current working directory.
+let g:ctrlp_working_path_mode = 'ra'
