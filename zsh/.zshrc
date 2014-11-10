@@ -87,6 +87,7 @@ alias "teamspeak_run_bg=bash $HOME/installed_programs/TeamSpeak*/ts3client_runsc
 alias "matlab_run=sudo bash $HOME/installed_programs/matlab*/bin/matlab &"
 
 alias "pycharm_run=sudo bash $HOME/installed_programs/pycharm*/bin/pycharm.sh &"
+alias "pycharm=$HOME/installed_programs/pycharm*/bin/pycharm.sh"
 
 alias "smartgit_run=sudo bash $HOME/installed_programs/smartgithg*/bin/smartgithg.sh &"
 
