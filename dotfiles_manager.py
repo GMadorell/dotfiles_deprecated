@@ -156,6 +156,11 @@ def link_backing_up(origin, destination):
     @param origin: path to file being linked to
     @param destination: path where the link will be created
     """
+    # Don't symlink if the link already exists.
+    if os.path.islink(destination) \
+            and os.path.realpath(destination) == origin:
+        return
+
     if os.path.exists(destination):
         backup_path = os.path.join(".", "backup", *get_dir_splits(destination))
         backup_file(destination, backup_path)
