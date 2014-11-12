@@ -6,6 +6,8 @@
         nnoremap <silent> <Leader>< :vertical res-10<CR>
         nnoremap <silent> <Leader>> :vertical res+10<CR>
         nnoremap <silent> <Leader><< :vertical res85<CR>
+        " Maximize the active buffer -> Set all other buffers to minimum size.
+        nnoremap <silent> <Leader>mm :res 1000<CR> 
     " }
 
     " Colon magic, allows to enter : without shift, faster {

@@ -7,3 +7,6 @@
     let vimrplugin_term = "terminator"
     let vimrplugin_term_cmd = "terminator --title R -x"
 " }
+
+" Remove annoying mapping that inserted <- instead of _ in insert mode.
+autocmd FileType r imap <LocalLeader>_ <NOP>
