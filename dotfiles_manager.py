@@ -29,10 +29,7 @@ def link_main_directory(name):
         "Directory '{}' is not valid. Does it exist?".format(name)
     # Try to link full directories, in case they don't exist or are empty
     # in the target location.
-    paths = get_dir_paths_for_directory(name)
-    origin_destination_list = get_origin_destination_for_paths(name, paths)
-    origin_destination_list.sort(key=lambda origin_destination:
-                                 len(get_dir_splits(origin_destination[0])))
+    origin_destination_list = get_sorted_directories_origin_destination(name)
 
     dirs_not_linked = [(os.path.expanduser(os.path.join(DOTFILES_DIR, name)),
                         os.path.expanduser("~"))]
@@ -67,6 +64,15 @@ def link_main_directory(name):
             link_backing_up(file_origin, file_destination)
 
     click.echo("Linked '{}' main directory.".format(name))
+
+
+def get_sorted_directories_origin_destination(main_directory):
+    paths = get_dir_paths_for_directory(main_directory)
+    origin_destination_list = \
+            get_origin_destination_for_paths(main_directory, paths)
+    origin_destination_list.sort(key=lambda origin_destination:
+                                 len(get_dir_splits(origin_destination[0])))
+    return origin_destination_list
 
 
 def remove_deeper_paths(origin_destination_list, destination):
@@ -185,8 +191,18 @@ def unlink(names):
 
 
 def unlink_main_directory(name):
+    # First check for directories, if they're linked to the dotfiles directory,
+    # remove them.
+    origin_destination_list = get_sorted_directories_origin_destination(name)
+    for origin, destination in origin_destination_list:
+        if os.path.islink(destination) \
+                and os.path.realpath(destination) == origin:
+            os.unlink(destination)
+
+    # Then check for files and do the same.
     for origin, destination in get_link_origin_destination_for_directory(name):
-        if os.path.islink(destination):
+        if os.path.islink(destination) \
+                and os.path.realpath(destination) == origin:
             os.unlink(destination)
     click.echo("Unlinked '{}' main directory.".format(name))
 
