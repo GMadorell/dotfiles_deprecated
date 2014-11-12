@@ -34,7 +34,8 @@ def link_main_directory(name):
     origin_destination_list.sort(key=lambda origin_destination:
                                  len(get_dir_splits(origin_destination[0])))
 
-    dirs_not_linked = []
+    dirs_not_linked = [(os.path.expanduser(os.path.join(DOTFILES_DIR, name)),
+                        os.path.expanduser("~"))]
     while len(origin_destination_list) > 0:
         origin, destination = origin_destination_list.pop(0)
         if not os.path.exists(destination) \
