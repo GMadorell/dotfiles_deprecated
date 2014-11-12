@@ -6,3 +6,4 @@ nmap <F4> = :SyntasticCheck<CR>
 nnoremap <F5> :GundoToggle<CR>
 " Execute actual script
 autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+autocmd FileType mkd nnoremap <buffer> <F9> :!make debug<CR>
