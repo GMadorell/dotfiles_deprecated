@@ -40,4 +40,15 @@
         " Detabulate whole selected block
         vmap <S-Tab> <gv
     " }
+
+    " variables case manipulation {
+        " under_score_name to underScoreName {
+            " Change word under the cursor
+            nnoremap <Leader>kk vaw:s#\%V_\(\l\)#\u\1#g<CR>
+            " Apply to visual selection
+            vnoremap <Leader>kk :s#\%V_\(\l\)#\u\1#g<CR>
+        " }
+        " http://vim.wikia.com/wiki/Converting_variables_to_or_from_camel_case
+        " for more
+    " }
 " }
