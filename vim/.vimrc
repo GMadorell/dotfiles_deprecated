@@ -19,6 +19,8 @@ let maplocalleader="_"
     Plugin 'vim-scripts/upAndDown'
     Plugin 'scrooloose/nerdcommenter'
     Plugin 'godlygeek/tabular'
+    Plugin 'Townk/vim-autoclose'
+    Plugin 'vim-scripts/closetag.vim'
 
     if ! MINIMAL_VIM
         Plugin 'plasticboy/vim-markdown'
@@ -70,7 +72,6 @@ is_bundle = 1 if name.lower() in bundles else 0
 vim.command("return {}".format(is_bundle))
 endpython
 endfunction
-
 
 " Import configurations from the settings directory.
 for f in split(glob('~/.vim/settings/*'), '\n')

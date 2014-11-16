@@ -53,6 +53,6 @@
     " }
 
     " html autocomplete {
-        autocmd FileType html iabbrev </ <BS></<C-X><C-O>
+        "autocmd FileType html iabbrev </ <BS></<C-X><C-O>
     " }
 " }
