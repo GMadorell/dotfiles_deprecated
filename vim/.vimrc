@@ -21,6 +21,7 @@ let maplocalleader="_"
     Plugin 'godlygeek/tabular'
     Plugin 'Townk/vim-autoclose'
     Plugin 'vim-scripts/closetag.vim'
+    Plugin 'tommcdo/vim-exchange'
 
     if ! MINIMAL_VIM
         Plugin 'plasticboy/vim-markdown'
@@ -45,6 +46,8 @@ let maplocalleader="_"
         Plugin 'xolox/vim-misc'
 
         Plugin 'vim-scripts/Vim-R-plugin'
+
+        Plugin 'vim-scripts/django.vim'
     endif
 
     " All of your Plugins must be added before the following line

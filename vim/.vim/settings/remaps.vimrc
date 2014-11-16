@@ -15,6 +15,8 @@
         nnoremap ; :
     " }
 
+    inoremap <Esc> <Esc><Esc><Esc>
+
     " Change to next row in editor, not next wrapped line {
         nnoremap j gj
         nnoremap k gk
@@ -50,9 +52,5 @@
         " }
         " http://vim.wikia.com/wiki/Converting_variables_to_or_from_camel_case
         " for more
-    " }
-
-    " html autocomplete {
-        "autocmd FileType html iabbrev </ <BS></<C-X><C-O>
     " }
 " }
