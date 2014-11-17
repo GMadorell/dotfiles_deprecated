@@ -112,3 +112,6 @@ export CONFIG_PATH="$HOME/Dropbox/configuration"
 
 # www.gitignore.io command line.
 function gi() { wget -qO- https://www.gitignore.io/api/$@ ;}
+
+# mkdir and cd into it
+function mkcdir() { mkdir -p -- "$1" && cd -P -- "$1" }
