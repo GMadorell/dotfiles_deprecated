@@ -48,7 +48,7 @@ ZSH_THEME=custom_avit
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git fabric pip pyenv python sublime web-search)
+plugins=(git fabric pip pyenv django python sublime web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -92,6 +92,10 @@ alias "pycharm_run=pycharm &"
 alias "smartgit_run=sudo bash $HOME/installed_programs/smartgithg*/bin/smartgithg.sh &"
 
 alias "android_studio_run=sudo bash $HOME/installed_programs/android-studio/bin/studio.sh &"
+
+alias "lsh=ls -human"
+
+alias "clc=clear"
 
 # Vim aliases
 alias "vim_plugin_install_and_quit=vim +PluginInstall +:q +:q"
