@@ -19,7 +19,7 @@ let maplocalleader="_"
     Plugin 'vim-scripts/upAndDown'
     Plugin 'scrooloose/nerdcommenter'
     Plugin 'godlygeek/tabular'
-    Plugin 'Townk/vim-autoclose'
+    Plugin 'vim-scripts/AutoClose'
     Plugin 'vim-scripts/closetag.vim'
     Plugin 'tommcdo/vim-exchange'
 

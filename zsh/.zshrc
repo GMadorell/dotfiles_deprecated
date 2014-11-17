@@ -82,6 +82,7 @@ fi
 export PATH="$HOME/anaconda/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
+# Aliases
 alias "teamspeak_run_bg=bash $HOME/installed_programs/TeamSpeak*/ts3client_runscript.sh &"
 
 alias "matlab_run=sudo bash $HOME/installed_programs/matlab*/bin/matlab &"
@@ -93,8 +94,8 @@ alias "smartgit_run=sudo bash $HOME/installed_programs/smartgithg*/bin/smartgith
 
 alias "android_studio_run=sudo bash $HOME/installed_programs/android-studio/bin/studio.sh &"
 
-alias "lsh=ls -human"
 
+alias "lsh=ls -human"
 alias "clc=clear"
 
 # Vim aliases
