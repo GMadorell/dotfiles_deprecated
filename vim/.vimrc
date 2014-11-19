@@ -22,10 +22,13 @@ let maplocalleader="_"
     Plugin 'vim-scripts/AutoClose'
     Plugin 'vim-scripts/closetag.vim'
     Plugin 'tommcdo/vim-exchange'
+    Plugin 'tpope/vim-surround'
 
     if ! MINIMAL_VIM
         Plugin 'plasticboy/vim-markdown'
         Plugin 'bling/vim-airline'
+
+        Plugin 'tpope/vim-fugitive'
         
         Plugin 'scrooloose/syntastic'
 
@@ -46,8 +49,6 @@ let maplocalleader="_"
         Plugin 'xolox/vim-misc'
 
         Plugin 'vim-scripts/Vim-R-plugin'
-
-        Plugin 'vim-scripts/django.vim'
     endif
 
     " All of your Plugins must be added before the following line
