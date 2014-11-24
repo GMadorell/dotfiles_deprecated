@@ -28,6 +28,8 @@ let maplocalleader="_"
         Plugin 'plasticboy/vim-markdown'
         Plugin 'bling/vim-airline'
 
+        Plugin 'terryma/vim-multiple-cursors'
+
         Plugin 'tpope/vim-fugitive'
         
         Plugin 'scrooloose/syntastic'
