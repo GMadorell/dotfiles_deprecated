@@ -18,3 +18,21 @@ snippet click_command "Create new click command" b
 def ${2:some_command}($3):
 	${5:pass}
 endsnippet
+
+
+
+snippet fabfile_boilerplate "Fabfile boilerplate" b
+from fabric.decorators import task
+from fabric.operations import run, local
+
+
+@task
+def ${1:some_command}():
+	local("${2:echo 'Hello World'}")
+endsnippet
+
+snippet fabcommand "Fab command" b
+@task
+def ${1:some_command}():
+	local("${2:echo 'Hello World'"})
+endsnippet
