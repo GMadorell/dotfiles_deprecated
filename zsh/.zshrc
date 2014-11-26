@@ -73,10 +73,14 @@ export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# Editor
+export EDITOR="vim"
+
 # Solarized
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
+
 
 
 export PATH="$HOME/anaconda/bin:$PATH"
@@ -110,8 +114,8 @@ export PROGRAMS_PATH="$HOME/installed_programs"
 
 export CONFIG_PATH="$HOME/Dropbox/configuration"
 
-# www.gitignore.io command line.
+# www.gitignore.io command line. Use it like gi python,pycharm,git >> .gitignore
 function gi() { wget -qO- https://www.gitignore.io/api/$@ ;}
 
-# mkdir and cd into it
+# mkdir and cd into it. Use it like mkcdir path/to/folder
 function mkcdir() { mkdir -p -- "$1" && cd -P -- "$1" }
