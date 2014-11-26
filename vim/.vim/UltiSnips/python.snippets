@@ -36,3 +36,8 @@ snippet fabcommand "Fab command" b
 def ${1:some_command}():
 	local("${2:echo 'Hello World'"})
 endsnippet
+
+snippet fabhide "Hide some characteristics of the command executed"
+with hide("${1:running}"):
+	$2
+endsnippet
