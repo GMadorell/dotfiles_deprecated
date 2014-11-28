@@ -53,4 +53,9 @@
         " http://vim.wikia.com/wiki/Converting_variables_to_or_from_camel_case
         " for more
     " }
-" }
+
+    " hide highlight 
+        nnoremap <Leader>h :noh<CR>
+    " }
+"}
+    
