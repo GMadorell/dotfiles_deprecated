@@ -106,6 +106,20 @@ alias "clc=clear"
 alias "vim_plugin_install_and_quit=vim +PluginInstall +:q +:q"
 alias "vim_plugin_update_and_quit=vim +PluginUpdate +:q +:q"
 
+# Django aliases
+alias "pymanage=python manage.py"
+alias "makemigrations=pymanage makemigrations"
+function django_db_dump () {
+    local db_dump_name="database_dump_`date +%Y-%m-%d`.json"
+    pymanage dumpdata > $db_dump_name
+    gpg -c $db_dump_name
+    rm $db_dump_name
+}
+
+# Elastic Beanstalk
+export PATH="$HOME/installed_programs/AWS-ElasticBeanstalk-CLI/eb/linux/python2.7":$PATH
+
+# Folders
 export SETUP_PATH="$HOME/setup"
 
 export DEBIAN_PKG_PATH="$HOME/setup/deb"
