@@ -1,0 +1,24 @@
+snippet djblock "Django {% %} block" i
+{% $1 %}$2
+endsnippet
+
+snippet djstaticload "Django static files"
+{% load staticfiles %}$1
+endsnippet
+
+snippet djstatic "Django static" i
+{% static '${1:static_file}' %}
+endsnippet
+
+snippet djif "Django if with else" 
+{% if ${1:condition} %}
+	$2
+${3:{% else %}}
+{% endif %}
+endsnippet
+
+snippet djfor "Django for loop" 
+{% for ${1:var} in ${2:iterable} %}
+	$3
+{% endfor %}
+endsnippet
