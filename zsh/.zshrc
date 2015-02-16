@@ -1,4 +1,4 @@
-# Path to your oh-my-zsh installation.
+
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -87,16 +87,20 @@ export PATH="$HOME/anaconda/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 # Aliases
-alias "teamspeak_run_bg=bash $HOME/installed_programs/TeamSpeak*/ts3client_runscript.sh &"
+alias "teamspeak_run_bg=bash $HOME/installed_programs/TeamSpeak*/ts3client_runscript.sh & disown"
 
-alias "matlab_run=sudo bash $HOME/installed_programs/matlab*/bin/matlab &"
+alias "matlab_run=sudo bash $HOME/installed_programs/matlab*/bin/matlab & disown"
 
 alias "pycharm=$HOME/installed_programs/pycharm*/bin/pycharm.sh"
-alias "pycharm_run=pycharm &"
+alias "pycharm_run=pycharm & disown"
 
-alias "smartgit_run=sudo bash $HOME/installed_programs/smartgithg*/bin/smartgithg.sh &"
+alias "smartgit_run=sudo bash $HOME/installed_programs/smartgithg*/bin/smartgithg.sh & disown"
 
-alias "android_studio_run=sudo bash $HOME/installed_programs/android-studio/bin/studio.sh &"
+alias "android_studio_run=sudo bash $HOME/installed_programs/android-studio/bin/studio.sh & disown"
+
+alias "intellij=$HOME/installed_programs/idea*/bin/idea.sh"
+alias "intellij_run=intellij & disown"
+
 
 
 alias "lsh=ls -human"
@@ -106,12 +110,21 @@ alias "clc=clear"
 alias "vim_plugin_install_and_quit=vim +PluginInstall +:q +:q"
 alias "vim_plugin_update_and_quit=vim +PluginUpdate +:q +:q"
 
+# Git aliases
+alias "git_remove_all_deleted=git ls-files --deleted -z | xargs -0 git rm"
+
 # Django aliases
 alias "pymanage=python manage.py"
 alias "makemigrations=pymanage makemigrations"
 function django_db_dump () {
     local db_dump_name="database_dump_`date +%Y-%m-%d`.json"
-    pymanage dumpdata > $db_dump_name
+    pymanage dumpdata --exclude auth.permission --exclude contenttypes > $db_dump_name
+    gpg -c $db_dump_name
+    rm $db_dump_name
+}
+function django_db_dump_buildout () {
+    local db_dump_name="database_dump_`date +%Y-%m-%d`.json"
+    ../bin/django dumpdata --natural -e admin -e sessions -e contenttypes -e auth.Permission --indent 2 > $db_dump_name
     gpg -c $db_dump_name
     rm $db_dump_name
 }
