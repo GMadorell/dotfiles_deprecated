@@ -81,10 +81,14 @@ if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 
-
-
 export PATH="$HOME/anaconda/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+
+# load virtualenvwrapper for python (after custom PATHs)
+venvwrap="virtualenvwrapper.sh"
+if [ -n `/usr/bin/which $venvwrap` ]; then
+    source `/usr/bin/which $venvwrap`
+fi
 
 # Aliases
 alias "teamspeak_run_bg=bash $HOME/installed_programs/TeamSpeak*/ts3client_runscript.sh & disown"
