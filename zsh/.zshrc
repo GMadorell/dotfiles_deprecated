@@ -86,8 +86,8 @@ export PATH="$HOME/bin:$PATH"
 
 # load virtualenvwrapper for python (after custom PATHs)
 venvwrap="virtualenvwrapper.sh"
-if [ -n `/usr/bin/which $venvwrap` ]; then
-    source `/usr/bin/which $venvwrap`
+if [[ -n $(/usr/bin/which $venvwrap) ]]; then
+    source $(/usr/bin/which $venvwrap)
 fi
 
 # Aliases
